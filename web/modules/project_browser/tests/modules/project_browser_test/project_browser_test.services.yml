@@ -1,0 +1,14 @@
+services:
+  project_browser_test.time:
+    class: Drupal\project_browser_test\Datetime\TestTime
+    decorates: datetime.time
+    arguments: ['@project_browser_test.time.inner','@request_stack']
+  project_browser_test.drupalorg_client_middleware:
+    class: Drupal\project_browser_test\DrupalOrgClientMiddleware
+    tags:
+      - { name: http_client_middleware }
+  project_browser_test.module_installer:
+    public: false
+    class: Drupal\project_browser_test\Extension\TestModuleInstaller
+    decorates: module_installer
+    arguments: ['%app.root%', '@module_handler', '@kernel', '@database', '@update.update_hook_registry']
