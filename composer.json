@@ -19,7 +19,9 @@
         "drupal/automatic_updates": "^2.5",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
-        "drupal/core-recommended": "^9"
+        "drupal/core-recommended": "^9",
+        "drupal/core-vendor-hardening": "^9.4",
+        "drush/drush": "^11.3"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -31,7 +33,8 @@
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true
+            "drupal/core-project-message": true,
+            "drupal/core-vendor-hardening": true
         }
     },
     "extra": {
@@ -86,6 +89,10 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
-        }
+        },
+        "drupal-core-vendor-hardening": {
+            "drush/drush": ["docs"],
+            "grasmash/yaml-expander": ["scenarios"]
+          }
     }
 }
